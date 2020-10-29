@@ -114,6 +114,26 @@ final class ComposerPlugin implements PluginInterface, EventSubscriberInterface
     }
 
     /**
+     * Deactivate the Composer plugin.
+     *
+     * @param Composer    $composer Reference to the Composer instance.
+     * @param IOInterface $io       Reference to the IO interface.
+     */
+    public function deactivate(Composer $composer, IOInterface $io)
+    {
+    }
+
+    /**
+     * Uninstall the Composer plugin.
+     *
+     * @param Composer    $composer Reference to the Composer instance.
+     * @param IOInterface $io       Reference to the IO interface.
+     */
+    public function uninstall(Composer $composer, IOInterface $io)
+    {
+    }
+
+    /**
      * Get the value of a config key from the "Extra" section.
      *
      * @param string $key      Key to look for.
