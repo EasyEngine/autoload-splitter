@@ -102,8 +102,9 @@ class AutoloadGenerator extends ComposerAutoloadGenerator
      * Whether or not generated autoloader considers APCu caching.
      *
      * @param bool $apcu
+     * @param string|null $apcuPrefix
      */
-    public function setApcu($apcu)
+    public function setApcu($apcu, $apcuPrefix = NULL)
     {
         $this->apcu = (boolean)$apcu;
     }
