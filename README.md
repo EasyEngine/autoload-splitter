@@ -1,13 +1,9 @@
-WP-CLI Autoload Splitter Composer Plugin
+EE Autoload Splitter Composer Plugin
 =======================================
 
----
+This is a custom autoloader generator for [EE](https://easyengine.io) that generates two separate autoloaders that split up the autoloadable classes. This allows these independent groups of autoloadable classes to be registered at different times in the code execution path.
 
-> ⛔️ __THIS PACKAGE IS OBSOLETE AS OF WP-CLI v2.0.0__ ⛔️
-
----
-
-This is a custom autoloader generator for [WP-CLI](https://wp-cli.org) that generates two separate autoloaders that split up the autoloadable classes. This allows these independent groups of autoloadable classes to be registered at different times in the code execution path.
+Base taken from: [WP-CLI Autoload Splitter](https://github.com/wp-cli/autoload-splitter)
 
 Using the default settings, it will produce the following two files:
 
@@ -17,12 +13,12 @@ Using the default settings, it will produce the following two files:
 Usage
 -----
 
-In your project's `composer.json`, require the `wp-cli/autoload-splitter`, and then optionally add the `"extra"` as needed to customize default behavior:
+In your project's `composer.json`, require the `easyengine/autoload-splitter`, and then optionally add the `"extra"` as needed to customize default behavior:
 
 ```json
 {
     "require": {
-        "wp-cli/autoload-splitter": "^0.1"
+        "easyengine/autoload-splitter": "^0.1"
     },
     "extra": {
         "autoload-splitter": {
