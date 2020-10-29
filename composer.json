@@ -1,5 +1,5 @@
 {
-	"name": "wp-cli/autoload-splitter",
+	"name": "easyengine/autoload-splitter",
 	"description": "Composer plugin for splitting a generated autoloader into two distinct parts.",
 	"type": "composer-plugin",
 	"license": "MIT",
@@ -12,8 +12,8 @@
 		}
 	],
 	"support": {
-		"source": "https://github.com/wp-cli/autoload-splitter",
-		"issues": "https://github.com/wp-cli/autoload-splitter/issues"
+		"source": "https://github.com/easyengine/autoload-splitter",
+		"issues": "https://github.com/easyengine/autoload-splitter/issues"
 	},
 	"autoload": {
 		"psr-4": {
