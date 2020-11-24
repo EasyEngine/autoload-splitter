@@ -122,15 +122,15 @@ class AutoloadGenerator extends ComposerAutoloadGenerator
     public function dump(
         Config $config,
         InstalledRepositoryInterface $localRepo,
-        RootPackageInterface $rootPackage,
+        Composer\Package\RootPackageInterface $rootPackage,
         InstallationManager $installationManager,
         $targetDir,
-        $scanPsr0Packages = false,
+        $scanPsrPackages = false,
         $suffix = ''
     ) {
         if ($this->classMapAuthoritative) {
-            // Force scanPsr0Packages when classmap is authoritative
-            $scanPsr0Packages = true;
+            // Force scanPsrPackages when classmap is authoritative
+            $scanPsrPackages = true;
         }
 
         $filesystem = new Filesystem();
@@ -204,7 +204,7 @@ EOF;
 
         // flatten array
         $classMap = array();
-        if ($scanPsr0Packages) {
+        if ($scanPsrPackages) {
             $namespacesToScan = array();
 
             // Scan the PSR-0/4 directories for class files, and add them to the class map
