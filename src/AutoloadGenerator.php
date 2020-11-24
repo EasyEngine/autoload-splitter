@@ -122,7 +122,7 @@ class AutoloadGenerator extends ComposerAutoloadGenerator
     public function dump(
         Config $config,
         InstalledRepositoryInterface $localRepo,
-        PackageInterface $mainPackage,
+        RootPackageInterface $rootPackage,
         InstallationManager $installationManager,
         $targetDir,
         $scanPsr0Packages = false,
@@ -191,11 +191,11 @@ EOF;
         // Collect information from all packages.
         $packageMap = $this->buildPackageMap(
             $installationManager,
-            $mainPackage,
+            $rootPackage,
             $localRepo->getCanonicalPackages()
         );
 
-        $autoloads = $this->parseAutoloads($packageMap, $mainPackage);
+        $autoloads = $this->parseAutoloads($packageMap, $rootPackage);
 
         $blacklist = null;
         if (! empty($autoloads['exclude-from-classmap'])) {
