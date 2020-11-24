@@ -11,6 +11,7 @@ use Composer\Autoload\AutoloadGenerator as ComposerAutoloadGenerator;
 use Composer\Package\PackageInterface;
 use Composer\Repository\InstalledRepositoryInterface;
 use Composer\Util\Filesystem;
+use Composer\Package\RootPackageInterface;
 
 /**
  * Class AutoloadGenerator.
@@ -122,15 +123,15 @@ class AutoloadGenerator extends ComposerAutoloadGenerator
     public function dump(
         Config $config,
         InstalledRepositoryInterface $localRepo,
-        PackageInterface $mainPackage,
+        RootPackageInterface $rootPackage,
         InstallationManager $installationManager,
         $targetDir,
-        $scanPsr0Packages = false,
+        $scanPsrPackages = false,
         $suffix = ''
     ) {
         if ($this->classMapAuthoritative) {
-            // Force scanPsr0Packages when classmap is authoritative
-            $scanPsr0Packages = true;
+            // Force scanPsrPackages when classmap is authoritative
+            $scanPsrPackages = true;
         }
 
         $filesystem = new Filesystem();
@@ -191,11 +192,11 @@ EOF;
         // Collect information from all packages.
         $packageMap = $this->buildPackageMap(
             $installationManager,
-            $mainPackage,
+            $rootPackage,
             $localRepo->getCanonicalPackages()
         );
 
-        $autoloads = $this->parseAutoloads($packageMap, $mainPackage);
+        $autoloads = $this->parseAutoloads($packageMap, $rootPackage);
 
         $blacklist = null;
         if (! empty($autoloads['exclude-from-classmap'])) {
@@ -204,7 +205,7 @@ EOF;
 
         // flatten array
         $classMap = array();
-        if ($scanPsr0Packages) {
+        if ($scanPsrPackages) {
             $namespacesToScan = array();
 
             // Scan the PSR-0/4 directories for class files, and add them to the class map
