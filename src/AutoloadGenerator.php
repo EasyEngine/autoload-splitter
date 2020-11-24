@@ -11,6 +11,7 @@ use Composer\Autoload\AutoloadGenerator as ComposerAutoloadGenerator;
 use Composer\Package\PackageInterface;
 use Composer\Repository\InstalledRepositoryInterface;
 use Composer\Util\Filesystem;
+use Composer\Package\RootPackageInterface;
 
 /**
  * Class AutoloadGenerator.
@@ -122,7 +123,7 @@ class AutoloadGenerator extends ComposerAutoloadGenerator
     public function dump(
         Config $config,
         InstalledRepositoryInterface $localRepo,
-        Composer\Package\RootPackageInterface $rootPackage,
+        RootPackageInterface $rootPackage,
         InstallationManager $installationManager,
         $targetDir,
         $scanPsrPackages = false,
